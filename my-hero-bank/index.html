@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Hero Bank</title>
+    <title>My Hero Bank | 岡本和真専用モデル</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -64,6 +64,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--color-accent-red);
+            text-align: center;
+            margin: 2rem 0;
+        }
+
         .scroll-down {
             position: absolute;
             bottom: 30px;
@@ -89,7 +96,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-8 text-xs font-black tracking-widest">
                 <a href="#about" class="hover:text-red-500 transition">ABOUT</a>
-                <a href="#rules" class="hover:text-red-500 transition">RULES</a>
+                <a href="#rules" class="hover:text-red-500 transition">HOW TO</a>
                 <a href="#toronto" class="hover:text-red-500 transition">TORONTO</a>
                 <a href="#download" class="bg-white text-blue-900 px-6 py-2.5 rounded-full hover:bg-red-500 hover:text-white transition duration-300">DOWNLOAD</a>
             </div>
@@ -120,16 +127,11 @@
                         第一弾：岡本和真選手 専用モデル
                     </p>
                     <p class="leading-loose">
-                        毎試合後をあなたに結果を届けます。通知が届いたら、お手元の貯金箱にお金を入れましょう。
-                    </p>
-                    <p class="text-base leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10">
-                        <span class="text-white font-bold">💡 開発者が毎試合ぽちぽち更新中</span><br>
-                        <span class="text-sm text-white">
-                            試合結果は、開発者が毎試合後に手動で登録しています。原則として試合日のうちに更新しますが、もし遅れてしまったらごめんなさい！
-                        </span>
+                        「My Hero Bank」は、推し選手の活躍を現実の貯金と連動させる応援アプリです。<br>
+                        ヒット一本、ホームラン一本が、あなたの未来の観戦資金へと変わります。
                     </p>
                     <p class="text-base font-black text-white inline-block">
-                        ※今後、他選手への対応も予定しています。おたのしみに！
+                        ※現在は岡本和真選手専用モデルですが、今後他選手への対応も予定しています。
                     </p>
                 </div>
             </div>
@@ -145,41 +147,47 @@
     </section>
 
     <section id="rules" class="section-gradient py-40 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-32" data-aos="fade-up">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 accent-line relative inline-block">THE RULES</h2>
+        <div class="max-w-4xl mx-auto text-center mb-24" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 accent-line relative inline-block">HOW TO USE</h2>
             <p class="text-blue-200 mt-12 text-xl font-bold">
-                「岡本和真がホームランを打ったら <span class="text-red-500 text-3xl">¥2,000</span>」<br>
-                情熱をそのまま貯金箱へ。
+                たった3ステップで、あなたの応援が形になります。
             </p>
         </div>
 
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-            <div class="glass-card p-12 rounded-[3rem]" data-aos="fade-up">
-                <h3 class="text-4xl font-anton mb-8 text-red-500">BATTING</h3>
-                <div class="flex flex-wrap gap-3 text-base font-bold">
-                    <span class="bg-white/10 px-4 py-2 rounded">ホームラン</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">3ベースヒット</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">2ベースヒット</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">ヒット</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">三振</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">凡退</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">フォアボール・デッドボール</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">送りバント・犠牲フライ</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">エラー・フィルダースチョイス</span>
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="glass-card p-10 rounded-[2rem] border-l-8 border-red-600" data-aos="fade-right">
+                <h3 class="text-2xl font-black mb-4"><span class="text-red-500 mr-4 font-anton text-4xl">01</span>自分だけのルールを設定</h3>
+                <p class="text-blue-200 mb-6">ホームランなら2,000円、ヒットなら500円…といったように、自分に合わせたルールと金額を自由にカスタマイズできます。</p>
+                <div class="flex flex-wrap gap-2 text-xs font-bold opacity-80">
+                    <span class="bg-white/10 px-3 py-1 rounded">ホームラン</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">三塁打</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">二塁打</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">安打</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">打点</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">猛打賞</span>
+                    <span class="bg-white/10 px-3 py-1 rounded">ヒーローインタビュー etc...</span>
                 </div>
             </div>
 
-            <div class="glass-card p-12 rounded-[3rem]" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-4xl font-anton mb-8 text-red-500">RUNNING & FIELDING & SPECIAL BONUS</h3>
-                <div class="flex flex-wrap gap-3 text-base font-bold">
-                    <span class="bg-white/10 px-4 py-2 rounded">打点</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">盗塁</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">ファインプレー</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">ヒーローインタビュー</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">猛打賞</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">サヨナラ勝ち</span>
-                    <span class="bg-white/10 px-4 py-2 rounded">サイクルヒット</span>
-                </div>
+            <div class="flow-arrow">▼</div>
+
+            <div class="glass-card p-10 rounded-[2rem] border-l-8 border-white" data-aos="fade-right">
+                <h3 class="text-2xl font-black mb-4"><span class="text-white mr-4 font-anton text-4xl">02</span>試合後の通知を待つだけ</h3>
+                <p class="text-blue-200">
+                    毎試合後、アプリが結果をプッシュ通知でお知らせします。<br>
+                    <span class="text-white font-bold italic">「開発者が毎試合、熱い想いを込めてポチポチ更新しています。」</span><br>
+                    ユーザーが結果を手入力する手間は一切ありません。
+                </p>
+            </div>
+
+            <div class="flow-arrow">▼</div>
+
+            <div class="glass-card p-10 rounded-[2rem] border-l-8 border-red-600" data-aos="fade-right">
+                <h3 class="text-2xl font-black mb-4"><span class="text-red-500 mr-4 font-anton text-4xl">03</span>貯金箱にお金を入れる</h3>
+                <p class="text-blue-200 text-xl font-bold">
+                    通知が届いたら、その興奮のままお手元の貯金箱へ。<br>
+                    アプリ内の貯金額が積み上がっていく喜びを味わいましょう。
+                </p>
             </div>
         </div>
     </section>
@@ -192,7 +200,8 @@
                 <h2 class="text-5xl md:text-8xl font-black leading-none uppercase italic">Next Stop,<br><span class="text-red-600">Toronto.</span></h2>
                 <div class="space-y-6 text-xl text-blue-200">
                     <p class="leading-loose">
-                        My Hero Bankで貯めたお金で、彼が躍動するトロントへ。
+                        My Hero Bankで貯めたお金で、彼が躍動するトロントへ。<br>
+                        日々の積み重ねが、いつかあなたを夢のスタンドへと運びます。
                     </p>
                     <p class="text-2xl font-black text-white italic">
                         ROAD TO CANADA
@@ -212,14 +221,14 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
             <div class="space-y-8">
                 <h2 class="text-4xl font-anton">MY HERO BANK</h2>
-                <p class="max-w-md text-xs leading-loose">
-                    ※本アプリはファンによる個人のプロジェクトであり、特定の球団、選手、リーグとは一切関係ありません。
+                <p class="max-w-md text-xs leading-loose text-white/60">
+                    ※本アプリはファンによる個人のプロジェクトであり、特定の球団、選手、リーグとは一切関係ありません。試合結果の更新は手動のため、状況により遅れる場合があります。
                 </p>
                 <p class="text-xs font-anton tracking-widest text-white/60 italic">© 2026 YUKA OKADA</p>
             </div>
             <div class="flex flex-col md:items-end space-y-6 font-black text-sm tracking-widest text-white/60">
                 <a href="#about" class="hover:text-red-500 transition">ABOUT</a>
-                <a href="#rules" class="hover:text-red-500 transition">RULES</a>
+                <a href="#rules" class="hover:text-red-500 transition">HOW TO</a>
                 <a href="mailto:support@example.com" class="bg-red-600 text-white px-8 py-3 rounded-full hover:scale-105 transition">CONTACT</a>
             </div>
         </div>
