@@ -52,10 +52,6 @@
             background-color: var(--color-deep-blue);
         }
 
-        .section-gradient {
-            background: linear-gradient(180deg, var(--color-deep-blue) 0%, #002D5F 100%);
-        }
-
         /* アクセント線（赤） */
         .accent-line::after {
             content: '';
@@ -106,11 +102,19 @@
         </nav>
     </header>
 
-    <section id="hero" class="hero-fullscreen">
+    <section id="hero" class="hero-fullscreen relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10 scale-110">
+            <img src="bear_hero.png" alt="Background Bear" class="w-full h-full object-cover object-center">
+        </div>
+        
         <div class="text-center z-10 px-6" data-aos="zoom-out" data-aos-duration="2000">
-            <div class="w-40 h-40 mx-auto mb-12 bg-white rounded-[40px] flex items-center justify-center text-6xl shadow-[0_0_50px_rgba(0,92,191,0.5)]">🐻</div>
+            <div class="relative inline-block mb-12">
+                <div class="absolute -inset-4 bg-white/10 blur-2xl rounded-full"></div>
+                <img src="bear_hero.png" alt="My Hero Bank Bear" class="w-64 h-auto relative z-10">
+            </div>
+            
             <p class="text-xl md:text-2xl font-black mb-4 tracking-[0.3em]" style="color: var(--color-text-dim);">DREAM BIG, SAVE BIG.</p>
-            <h1 class="text-6xl md:text-[10rem] font-anton leading-none mb-12">
+            <h1 class="text-6xl md:text-[10rem] font-anton leading-none mb-12 relative">
                 MY HERO BANK
             </h1>
             <a href="#about" class="inline-block border-2 border-white text-white font-black px-14 py-4 rounded-full text-xl hover:bg-white hover:text-blue-900 transition duration-500">
@@ -136,88 +140,25 @@
             <div class="md:w-1/2" data-aos="fade-left">
                 <div class="relative">
                     <div class="absolute -inset-4 bg-red-600/20 blur-3xl rounded-full"></div>
-                    <div class="relative w-full h-[650px] bg-card-blue glass-card rounded-[3rem] shadow-2xl flex items-center justify-center text-blue-300 font-anton text-4xl overflow-hidden">
-                        <img src="app_screen_1.png" alt="App Screen" class="w-full h-full object-cover opacity-80">
+                    <div class="relative w-full h-[650px] bg-card-blue glass-card rounded-[3rem] shadow-2xl flex items-center justify-center text-blue-300 font-anton text-4xl overflow-hidden p-4">
+                        <img src="app_screen_home.png" alt="My Hero Bank App Home" class="h-full w-auto object-contain rounded-2xl shadow-inner">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="rules" class="section-gradient py-40 px-6">
+    <section id="rules" class="py-40 px-6 bg-[#002D5F]">
         <div class="max-w-4xl mx-auto text-center mb-32" data-aos="fade-up">
             <h2 class="text-4xl md:text-6xl font-black mb-8 accent-line relative inline-block">THE RULES</h2>
-            <p class="text-blue-200 mt-12 text-xl font-bold">「どんな活躍」に、「いくら」貯めるか。<br>すべてはあなたの自由です。</p>
         </div>
-
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
-            <div class="glass-card p-16 rounded-[3rem] group hover:border-red-500 transition duration-500" data-aos="fade-right">
-                <h3 class="text-5xl font-anton mb-10 text-white group-hover:text-red-500 transition">BATTING</h3>
-                <ul class="space-y-8 text-2xl font-black italic">
-                    <li class="flex justify-between border-b border-white/10 pb-4"><span>HOME RUN</span> <span class="text-red-500">+</span></li>
-                    <li class="flex justify-between border-b border-white/10 pb-4"><span>3rd BASE HIT</span> <span class="text-red-500">+</span></li>
-                    <li class="flex justify-between border-b border-white/10 pb-4"><span>HIT</span> <span class="text-red-500">+</span></li>
-                    <li class="flex justify-between border-b border-white/10 pb-4 opacity-30"><span>STRIKEOUT</span> <span>-</span></li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-16 rounded-[3rem] text-blue-900" data-aos="fade-left">
-                <h3 class="text-5xl font-anton mb-10">AMOUNT</h3>
-                <p class="text-2xl font-black mb-12">1円単位で、<br>情熱のままに設定。</p>
-                <div class="space-y-12">
-                    <div>
-                        <div class="flex justify-between font-anton text-3xl mb-4">
-                            <span>SETTING</span>
-                            <span>¥300</span>
-                        </div>
-                        <div class="w-full bg-blue-100 h-6 rounded-full overflow-hidden">
-                            <div class="bg-red-600 h-full w-2/3"></div>
-                        </div>
-                    </div>
-                    <button class="w-full bg-blue-900 text-white font-black py-6 rounded-2xl text-xl hover:bg-red-600 transition duration-300">SAVE RULE</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark py-40 px-6 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-anton opacity-[0.02] pointer-events-none">TORONTO</div>
-        
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-24">
-            <div class="md:w-1/2 space-y-10 z-10" data-aos="fade-left">
-                <h2 class="text-5xl md:text-8xl font-black leading-none uppercase">Next Stop,<br><span class="text-red-600">Toronto.</span></h2>
-                <p class="text-2xl text-blue-200 leading-relaxed font-bold italic">
-                    「打球の行方が、貯金の行方。」<br>
-                    推しの活躍が通知されるたび、<br>
-                    スタジアムへの距離が縮まっていく。
-                </p>
-                <div class="pt-8 text-blue-400 font-anton text-xl tracking-widest">ROAD TO THE STADIUM</div>
-            </div>
-            <div class="md:w-1/2 relative" data-aos="zoom-in">
-                <div class="w-full h-[550px] rounded-[4rem] overflow-hidden shadow-2xl border-4 border-white/10">
-                    <img src="toronto_dream.png" alt="Toronto Dream" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-red-600 rounded-full flex items-center justify-center font-anton text-4xl shadow-2xl">GO!</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <footer class="bg-black/40 py-24 px-6 border-t border-white/5">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
-            <div class="space-y-8">
-                <h2 class="text-4xl font-anton">MY HERO BANK</h2>
-                <p class="max-w-md text-xs text-blue-400/50 leading-loose">
-                    ※本アプリはファンによる個人のプロジェクトであり、特定の球団、選手、リーグとは一切関係ありません。野球を愛するすべてのファンのためのシミュレーターです。
-                </p>
-                <p class="text-xs font-anton tracking-widest">© 2026 OTTALABO / YUKA OKADA</p>
-            </div>
-            <div class="flex flex-col md:items-end space-y-6 font-black text-sm tracking-widest">
-                <a href="privacy.html" class="hover:text-red-500 transition">PRIVACY POLICY</a>
-                <a href="terms.html" class="hover:text-red-500 transition">TERMS OF SERVICE</a>
-                <a href="mailto:support@example.com" class="bg-red-600 text-white px-8 py-3 rounded-full hover:scale-105 transition">SUPPORT</a>
-            </div>
+            <h2 class="text-4xl font-anton">MY HERO BANK</h2>
         </div>
-    </footer>
+        </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
