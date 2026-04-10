@@ -15,47 +15,60 @@
 
     <style>
         :root {
-            --color-primary: #005CBF; /* Royal Blue */
-            --color-accent: #E31D2B;  /* Canadian Red */
-            --color-bg: #FFFFFF;
-            --color-text: #051429;   /* Very Dark Blue */
+            --color-deep-blue: #001D3D; /* 深海のような紺色 */
+            --color-royal-blue: #005CBF; /* ブルージェイズ・ブルー */
+            --color-card-blue: #002D5F;  /* カード用少し明るい青 */
+            --color-accent-red: #E31D2B; /* アクセントレッド */
+            --color-text-white: #FFFFFF;
+            --color-text-dim: #A3D2FF;   /* 文字用薄い青 */
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            background-color: var(--color-deep-blue);
+            color: var(--color-text-white);
             overflow-x: hidden;
             line-height: 1.8;
         }
 
-        /* 大胆な英語フォント */
         .font-anton {
             font-family: 'Anton', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        /* ヒーローセクション（FV）全体をカバー */
+        /* ヒーローセクション（FV） */
         .hero-fullscreen {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, #001D3D 0%, #005CBF 100%);
-            color: white;
+            background: radial-gradient(circle at center, #005CBF 0%, #001D3D 100%);
         }
 
-        /* 背景のグラフィック（野球のダイヤモンド風） */
-        .hero-bg-pattern {
+        /* セクション共通背景 */
+        .section-dark {
+            background-color: var(--color-deep-blue);
+        }
+
+        .section-gradient {
+            background: linear-gradient(180deg, var(--color-deep-blue) 0%, #002D5F 100%);
+        }
+
+        /* アクセント線（赤） */
+        .accent-line::after {
+            content: '';
             position: absolute;
-            inset: 0;
-            opacity: 0.1;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJbMCAwaDQwdjQwSDBWMHptMjAgMjBoMjB2MjBIMjBWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-accent-red);
         }
 
-        /* スクロールダウンの矢印アニメーション */
+        /* スクロールダウンの矢印 */
         .scroll-down {
             position: absolute;
             bottom: 30px;
@@ -70,167 +83,138 @@
             60% {transform: translateY(-5px) translateX(-50%);}
         }
 
-        /* 重要な要素への赤アクセント線 */
-        .accent-line {
-            position: relative;
-            display: inline-block;
+        /* Glassmorphism カード */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .accent-line::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--color-accent);
-        }
-
-        /* セクション間の区切りを洗練させる */
-        section {
-            position: relative;
-            z-index: 10;
-        }
-
     </style>
 </head>
 <body>
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#001D3D]/80 backdrop-blur-md">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3">
-                <span class="text-3xl font-anton" style="color: var(--color-primary);">My Hero Bank</span>
+                <span class="text-3xl font-anton tracking-tighter" style="color: white;">My Hero Bank</span>
             </a>
-            <div class="flex items-center space-x-6 text-sm font-bold text-gray-800">
-                <a href="#about" class="hover:text-blue-700 transition">ABOUT</a>
-                <a href="#rules" class="hover:text-blue-700 transition">RULES</a>
-                <a href="#download" class="text-white px-5 py-2.5 rounded-full text-xs font-black transition hover:scale-105" style="background-color: var(--color-primary);">DOWNLOAD</a>
+            <div class="flex items-center space-x-8 text-xs font-black tracking-widest">
+                <a href="#about" class="hover:text-red-500 transition">ABOUT</a>
+                <a href="#rules" class="hover:text-red-500 transition">RULES</a>
+                <a href="#download" class="bg-white text-blue-900 px-6 py-2.5 rounded-full hover:bg-red-500 hover:text-white transition duration-300">DOWNLOAD</a>
             </div>
         </nav>
     </header>
 
     <section id="hero" class="hero-fullscreen">
-        <div class="hero-bg-pattern"></div>
-        <div class="text-center z-10 px-6" data-aos="fade-up" data-aos-duration="1500">
-            <div class="w-64 h-64 mx-auto mb-10 bg-white/20 rounded-full flex items-center justify-center text-4xl shadow-2xl">🐻</div>
-
-            <p class="text-lg md:text-xl font-bold mb-4 tracking-wider" style="color: #A3D2FF;">推しの活躍が、未来の貯金になる。</p>
-            <h1 class="text-6xl md:text-8xl font-black leading-tight mb-12">
-                <span class="font-anton block">My Hero Bank</span>
+        <div class="text-center z-10 px-6" data-aos="zoom-out" data-aos-duration="2000">
+            <div class="w-40 h-40 mx-auto mb-12 bg-white rounded-[40px] flex items-center justify-center text-6xl shadow-[0_0_50px_rgba(0,92,191,0.5)]">🐻</div>
+            <p class="text-xl md:text-2xl font-black mb-4 tracking-[0.3em]" style="color: var(--color-text-dim);">DREAM BIG, SAVE BIG.</p>
+            <h1 class="text-6xl md:text-[10rem] font-anton leading-none mb-12">
+                MY HERO BANK
             </h1>
-            <a href="#about" class="inline-block bg-white text-blue-900 font-black px-12 py-4 rounded-full text-xl shadow-2xl hover:bg-gray-100 transition duration-300 hover:scale-105">
-                アプリを体感する
+            <a href="#about" class="inline-block border-2 border-white text-white font-black px-14 py-4 rounded-full text-xl hover:bg-white hover:text-blue-900 transition duration-500">
+                EXPLORE
             </a>
         </div>
-        <div class="scroll-down text-white text-3xl">↓</div>
+        <div class="scroll-down text-white/30 text-2xl font-anton">SCROLL</div>
     </section>
 
-    <section id="about" class="py-32 px-6 bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2 space-y-10" data-aos="fade-right">
-                <h2 class="text-5xl font-black leading-tight text-blue-900">
-                    応援は何かとお金がかかるもの。<br>
-                    だから、<span class="accent-line">世界一幸せな貯金箱</span>を。
+    <section id="about" class="section-dark py-40 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-24">
+            <div class="md:w-1/2 space-y-12" data-aos="fade-up">
+                <h2 class="text-5xl md:text-7xl font-black leading-tight italic">
+                    その一振りを、<br><span class="text-red-600">あなたの資産</span>へ。
                 </h2>
-                <p class="text-xl text-gray-800 font-medium">
-                    チケット、サブスク、グッズ…。<br>
-                    My Hero Bankは、プロ野球選手の活躍に連動して、<br>
-                    あなたが決めたルールで自動的に貯金額を計算・記録。<br>
-                    熱狂的な応援を、確かな資産へと変えるアプリです。
+                <p class="text-xl text-dim leading-loose text-blue-200">
+                    応援は、投資だ。<br>
+                    My Hero Bankは、プロ野球選手の活躍を<br>
+                    リアルタイムであなたの貯金箱に直結させます。<br>
+                    推しの勝利と、あなたの夢。その両方を同時に追いかける。
                 </p>
             </div>
             <div class="md:w-1/2" data-aos="fade-left">
-                <div class="w-full h-[600px] bg-blue-50 rounded-3xl shadow-xl flex items-center justify-center text-blue-300 font-anton text-4xl">App Screenshot</div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-red-600/20 blur-3xl rounded-full"></div>
+                    <div class="relative w-full h-[650px] bg-card-blue glass-card rounded-[3rem] shadow-2xl flex items-center justify-center text-blue-300 font-anton text-4xl overflow-hidden">
+                        <img src="app_screen_1.png" alt="App Screen" class="w-full h-full object-cover opacity-80">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="rules" class="py-32 px-6 bg-[#F4F7FA]">
-        <div class="max-w-7xl mx-auto text-center mb-24" data-aos="fade-up">
-            <span class="text-sm font-black text-red-600 tracking-widest block mb-4">DYNAMIC RULES</span>
-            <h2 class="text-5xl font-black text-blue-950 accent-line">「どんな活躍」に、「いくら」貯金しますか？</h2>
+    <section id="rules" class="section-gradient py-40 px-6">
+        <div class="max-w-4xl mx-auto text-center mb-32" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 accent-line relative inline-block">THE RULES</h2>
+            <p class="text-blue-200 mt-12 text-xl font-bold">「どんな活躍」に、「いくら」貯めるか。<br>すべてはあなたの自由です。</p>
         </div>
 
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-stretch">
-            <div class="bg-white p-12 rounded-3xl shadow-lg border border-gray-100" data-aos="flip-left">
-                <div class="flex items-center space-x-6 mb-10 border-b border-gray-100 pb-8">
-                    <div class="text-5xl">⚾️</div>
-                    <h3 class="text-3xl font-anton text-blue-900">BATTING連動</h3>
-                </div>
-                <ul class="space-y-6 text-xl text-gray-800 font-semibold">
-                    <li>✅ ホームラン</li>
-                    <li>✅ 3ベースヒット</li>
-                    <li>✅ Hit (安打)</li>
-                    <li>✅ 三振 / 凡退 ...</li>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-stretch">
+            <div class="glass-card p-16 rounded-[3rem] group hover:border-red-500 transition duration-500" data-aos="fade-right">
+                <h3 class="text-5xl font-anton mb-10 text-white group-hover:text-red-500 transition">BATTING</h3>
+                <ul class="space-y-8 text-2xl font-black italic">
+                    <li class="flex justify-between border-b border-white/10 pb-4"><span>HOME RUN</span> <span class="text-red-500">+</span></li>
+                    <li class="flex justify-between border-b border-white/10 pb-4"><span>3rd BASE HIT</span> <span class="text-red-500">+</span></li>
+                    <li class="flex justify-between border-b border-white/10 pb-4"><span>HIT</span> <span class="text-red-500">+</span></li>
+                    <li class="flex justify-between border-b border-white/10 pb-4 opacity-30"><span>STRIKEOUT</span> <span>-</span></li>
                 </ul>
-                <div class="mt-12 pt-8 border-t border-gray-100 flex items-center justify-between text-blue-600 font-anton">
-                    <span>ルールを追加</span>
-                    <span class="text-2xl">→</span>
-                </div>
             </div>
 
-            <div class="bg-blue-900 text-white p-12 rounded-3xl shadow-lg" data-aos="flip-right">
-                <div class="flex items-center space-x-6 mb-10 border-b border-blue-800 pb-8">
-                    <div class="text-5xl">💰</div>
-                    <h3 class="text-3xl font-anton">金額は自由に設定</h3>
+            <div class="bg-white p-16 rounded-[3rem] text-blue-900" data-aos="fade-left">
+                <h3 class="text-5xl font-anton mb-10">AMOUNT</h3>
+                <p class="text-2xl font-black mb-12">1円単位で、<br>情熱のままに設定。</p>
+                <div class="space-y-12">
+                    <div>
+                        <div class="flex justify-between font-anton text-3xl mb-4">
+                            <span>SETTING</span>
+                            <span>¥300</span>
+                        </div>
+                        <div class="w-full bg-blue-100 h-6 rounded-full overflow-hidden">
+                            <div class="bg-red-600 h-full w-2/3"></div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-900 text-white font-black py-6 rounded-2xl text-xl hover:bg-red-600 transition duration-300">SAVE RULE</button>
                 </div>
-                <p class="text-xl mb-10 leading-relaxed">
-                    ホームランなら￥300、安打なら￥100。<br>
-                    1円単位で金額を設定できます。
-                </p>
-                <div class="w-full bg-blue-700 h-4 rounded-full relative mb-12">
-                    <div class="bg-red-500 h-4 rounded-full w-2/3"></div>
-                    <div class="absolute -top-12 right-1/3 bg-white text-blue-900 px-4 py-2 rounded-lg font-black text-xl">￥300</div>
-                </div>
-                <button class="w-full bg-red-600 text-white font-black py-4 rounded-xl text-lg hover:bg-red-700 transition">貯金ルールを確定</button>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-20">
-            <div class="md:w-1/2 space-y-10" data-aos="fade-left">
-                <span class="text-sm font-black text-red-600 tracking-widest block mb-4">DREAM BIG</span>
-                <h2 class="text-5xl font-black text-blue-900 leading-tight">打球の行方が、貯金の行方。<br>さあ、<span class="accent-line">トロントへ！</span></h2>
-                <p class="text-xl text-gray-800 font-medium">
-                    推しの活躍通知が届いたら、それが貯金の合図。<br>
-                    目標金額を設定して、スタジアムへの旅費や、<br>
-                    新しいグッズ購入のカウントダウンを楽しみましょう。
+    <section class="section-dark py-40 px-6 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-anton opacity-[0.02] pointer-events-none">TORONTO</div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-24">
+            <div class="md:w-1/2 space-y-10 z-10" data-aos="fade-left">
+                <h2 class="text-5xl md:text-8xl font-black leading-none uppercase">Next Stop,<br><span class="text-red-600">Toronto.</span></h2>
+                <p class="text-2xl text-blue-200 leading-relaxed font-bold italic">
+                    「打球の行方が、貯金の行方。」<br>
+                    推しの活躍が通知されるたび、<br>
+                    スタジアムへの距離が縮まっていく。
                 </p>
+                <div class="pt-8 text-blue-400 font-anton text-xl tracking-widest">ROAD TO THE STADIUM</div>
             </div>
-            <div class="md:w-1/2 relative" data-aos="fade-right">
-                <div class="w-full h-[500px] bg-blue-100 rounded-3xl shadow-2xl flex items-center justify-center text-blue-900 font-anton text-4xl">[Image: Bear Dreaming]</div>
+            <div class="md:w-1/2 relative" data-aos="zoom-in">
+                <div class="w-full h-[550px] rounded-[4rem] overflow-hidden shadow-2xl border-4 border-white/10">
+                    <img src="toronto_dream.png" alt="Toronto Dream" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-red-600 rounded-full flex items-center justify-center font-anton text-4xl shadow-2xl">GO!</div>
             </div>
         </div>
     </section>
 
-    <section id="download" class="py-32 hero-gradient text-white text-center px-6" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl font-black mb-6">「My Hero Bank」を今すぐ体験しよう。</h2>
-            <p class="text-2xl text-blue-200 mb-16 font-bold">あなたの熱狂が、確かな価値に変わる瞬間を。</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
-                <a href="https://apps.apple.com/app/myherobank/idXXXXXXX" target="_blank" class="block transition hover:scale-105 shadow-xl rounded-2xl">
-                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?releaseDate=XXXXXX&h=a2d398d5a1b32d5612f0f4b3605c3f30" alt="Download on the App Store" class="h-20 h-auto">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-50 py-16 px-6 border-t border-gray-100 text-sm text-gray-600">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <a href="#" class="flex items-center space-x-3 mb-6">
-                    <span class="text-2xl font-anton text-blue-900">My Hero Bank</span>
-                </a>
-                <p class="max-w-sm mb-6 text-xs text-gray-400">
-                    ※本アプリはファンによる個人のプロジェクトであり、特定の球団、選手、リーグとは一切関係ありません。<br>
-                    ※掲載されている情報や画像は、ファンアプリとしての紹介を目的としたものです。
+    <footer class="bg-black/40 py-24 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+            <div class="space-y-8">
+                <h2 class="text-4xl font-anton">MY HERO BANK</h2>
+                <p class="max-w-md text-xs text-blue-400/50 leading-loose">
+                    ※本アプリはファンによる個人のプロジェクトであり、特定の球団、選手、リーグとは一切関係ありません。野球を愛するすべてのファンのためのシミュレーターです。
                 </p>
-                <p>© 2026 OttaLabo / Yuka Okada. All Rights Reserved.</p>
+                <p class="text-xs font-anton tracking-widest">© 2026 OTTALABO / YUKA OKADA</p>
             </div>
-            <div class="flex flex-col items-start md:items-end space-y-4">
-                <a href="privacy.html" class="underline hover:text-blue-700">プライバシーポリシー</a>
-                <a href="terms.html" class="underline hover:text-blue-700">利用規約</a>
-                <a href="mailto:support@yourdomain.com" class="font-bold text-white px-5 py-2 rounded-full text-xs" style="background-color: var(--color-accent);">サポート / お問い合わせ</a>
+            <div class="flex flex-col md:items-end space-y-6 font-black text-sm tracking-widest">
+                <a href="privacy.html" class="hover:text-red-500 transition">PRIVACY POLICY</a>
+                <a href="terms.html" class="hover:text-red-500 transition">TERMS OF SERVICE</a>
+                <a href="mailto:support@example.com" class="bg-red-600 text-white px-8 py-3 rounded-full hover:scale-105 transition">SUPPORT</a>
             </div>
         </div>
     </footer>
@@ -238,8 +222,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true, // アニメーションは1回だけ
-            duration: 1000 // アニメーションの速度
+            duration: 1200,
+            once: true,
+            easing: 'ease-out-back'
         });
     </script>
 </body>
